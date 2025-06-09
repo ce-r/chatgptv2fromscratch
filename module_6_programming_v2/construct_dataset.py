@@ -22,10 +22,8 @@ def construct_dataset(data_txt_file, sequence_length=256):
     # construct tokenizer
     tokenizer = HFTokenizer()
     tokenizer.load()
-
-    # get all samples
-    f = open(data_txt_file, "r")
-    samples = f.readlines()
+    with open(data_txt_file, "r") as f:
+        samples = f.readlines()
     samples = [x.replace("\n", "") for x in samples]
 
     # ----------------------------------------
